@@ -1,0 +1,29 @@
+<div class="container">
+  <h1 style="text-align: center">Movie Categories</h1>
+  <br />
+
+  <ul class="custom-counter">
+    <li
+      (click)="getMovieById(item.id)"
+      class="listitem"
+      *ngFor="let item of genreList.genres; index as ind"
+    >
+      {{ item.name }}
+    </li>
+  </ul>
+
+  <div>
+    <!-- <div>Some tags before</div> -->
+    <div class="movies-slider">
+      <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide *ngFor="let movie of movieList">
+          <div>
+            <img src="{{ IMG_URL + movie.poster_path }}" />
+            <span class="movie-title">{{ movie.title  }}</span>
+          </div>
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+    <!-- <div>Some tags after</div> -->
+  </div>
+</div>
